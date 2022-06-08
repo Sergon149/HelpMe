@@ -104,6 +104,54 @@ class UserController (private val userRepository: UserRepository, private val po
         return userRepository.getById(id)
     }
 
+    @GetMapping("getName/{id}")
+    fun getName(@PathVariable id: Int) : String {
+        val user = userRepository.getById(id)
+        return "${user.name} ${user.lastname1} ${user.lastname2}"
+    }
+
+    //http://localhost:8082/getless20
+    @GetMapping("getless20")
+    fun getless20(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age < 20) {
+                println(it)
+                cont += 1
+                println(cont)
+            }
+        }
+        return cont.toString()
+    }
+
+    //http://localhost:8082/get20_29
+    @GetMapping("get20_29")
+    fun get20_29(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age in 20..29) {
+                println(it)
+                cont += 1
+                println(cont)
+            }
+        }
+        return cont.toString()
+    }
+
+    //http://localhost:8082/get30_39
+    @GetMapping("get30_39")
+    fun get30_39(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age in 30..39) {
+                println(it)
+                cont += 1
+                println(cont)
+            }
+        }
+        return cont.toString()
+    }
+
     fun checkId(admin : AdminUsers): Boolean{
         var exist=false
         adminUsersRepository.findAll().forEach {

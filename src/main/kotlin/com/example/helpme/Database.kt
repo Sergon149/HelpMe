@@ -15,7 +15,18 @@ class Database {
         return CommandLineRunner{
             println("Database being created")
             val listUsers = listOf(
-                Users(666666666, "Sergio", "Gonzalez", "Montero", 20)
+                Users(666666666, "Sergio", "Gonzalez", "Montero", 20),
+                Users(111111111, "Paco", "Garcia", "Valero", 40),
+                Users(222222222, "Alicia", "Montero", "Jimenez", 50),
+                Users(333333333, "Gema", "Matellanes", "Martinez", 19),
+                Users(445645667, "Eustaquea", "Lorenza", "Fernandez", 12),
+                Users(567889536, "Ramira", "Garcia", "Valero", 15),
+                Users(444444444, "David", "Ruiz", "Prada", 63),
+                Users(555555555, "Alejandro", "Fernandez", "Porras", 56),
+                Users(777777777, "Angel", "Lozano", "Paños", 37),
+                Users(634746758, "Antonio", "Martinez", "Garcia", 52),
+                Users(656787912, "Samuel", "Porcuna", "Garcia", 82),
+                Users(778756436, "Alfonso", "Garcia", "Ramirez", 32)
             )
             val listAdmins = listOf(
                 AdminUsers(2222,"primeradmin")
