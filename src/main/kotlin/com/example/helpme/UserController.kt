@@ -115,12 +115,10 @@ class UserController (private val userRepository: UserRepository, private val po
     fun getless20(): String {
         var cont = 0
         userRepository.findAll().forEach {
-            if(it.age < 20) {
-                println(it)
+            if(it.age < 20)
                 cont += 1
-                println(cont)
-            }
         }
+        println(cont)
         return cont.toString()
     }
 
@@ -129,12 +127,10 @@ class UserController (private val userRepository: UserRepository, private val po
     fun get20_29(): String {
         var cont = 0
         userRepository.findAll().forEach {
-            if(it.age in 20..29) {
-                println(it)
+            if(it.age in 20..29)
                 cont += 1
-                println(cont)
-            }
         }
+        println(cont)
         return cont.toString()
     }
 
@@ -143,13 +139,82 @@ class UserController (private val userRepository: UserRepository, private val po
     fun get30_39(): String {
         var cont = 0
         userRepository.findAll().forEach {
-            if(it.age in 30..39) {
-                println(it)
+            if(it.age in 30..39)
                 cont += 1
-                println(cont)
+        }
+        println(cont)
+        return cont.toString()
+    }
+
+    //http://localhost:8082/get40_49
+    @GetMapping("get40_49")
+    fun get40_49(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age in 40..49)
+                cont += 1
+        }
+        println(cont)
+        return cont.toString()
+    }
+
+    //http://localhost:8082/get50_59
+    @GetMapping("get50_59")
+    fun get50_59(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age in 50..59)
+                cont += 1
+        }
+        println(cont)
+        return cont.toString()
+    }
+
+    //http://localhost:8082/get60_69
+    @GetMapping("get60_69")
+    fun get60_69(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age in 60..69)
+                cont += 1
+        }
+        println(cont)
+        return cont.toString()
+    }
+
+    //http://localhost:8082/get70_79
+    @GetMapping("get70_79")
+    fun get70_79(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age in 70..79)
+                cont += 1
+        }
+        println(cont)
+        return cont.toString()
+    }
+
+    //http://localhost:8082/getmore80
+    @GetMapping("getmore80")
+    fun getmore80(): String {
+        var cont = 0
+        userRepository.findAll().forEach {
+            if(it.age >= 80)
+                cont += 1
+        }
+        println(cont)
+        return cont.toString()
+    }
+
+    @GetMapping("checkUser/{number}")
+    fun checkUser(@PathVariable number: Int): Boolean {
+        var exist=false
+        userRepository.findAll().forEach {
+            if (it.telephoneNumber == number ){
+                exist=true
             }
         }
-        return cont.toString()
+        return exist
     }
 
     fun checkId(admin : AdminUsers): Boolean{
