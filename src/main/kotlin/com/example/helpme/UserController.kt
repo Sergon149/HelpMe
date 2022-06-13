@@ -51,7 +51,10 @@ class UserController (private val userRepository: UserRepository, private val po
     @GetMapping("GetList/{idU}")
     fun getList(@PathVariable idU : Int): Any {
         val list = PostList()
-        postRepository.findAll().forEach {
+        /*postRepository.findAll().forEach {
+            if (it.idUser == idU){ list.listwithpost.add(it) }
+        }*/
+        postRepository.findAll().asReversed().forEach {
             if (it.idUser == idU){ list.listwithpost.add(it) }
         }
         return if (list.listwithpost.size>0)
